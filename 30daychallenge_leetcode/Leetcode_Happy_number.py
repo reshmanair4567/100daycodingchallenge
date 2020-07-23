@@ -7,6 +7,7 @@ class Solution:
             digit=n%10
             n=n//10
             sum+=digit**2
+        print(sum)
         return sum
     
     def isHappy(self, n: int) -> bool:
