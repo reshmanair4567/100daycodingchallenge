@@ -37,6 +37,7 @@ class MyHashSet(object):
         return self.bucketArray[bucketIndex].exists(key)
 
 
+
 class Node:
     def __init__(self, value, nextNode=None):
         self.value = value
