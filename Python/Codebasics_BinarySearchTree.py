@@ -63,8 +63,9 @@ def build_tree(elements):
 if __name__=="__main__":
     nums=[17,4,-1,20,9,23,18,-1,4,20,20,20,20,34]
     numbers_tree=build_tree(nums)
-    print("Inorder Traveresed BST is:  ",numbers_tree.in_order_traversal())
-    print("Miniumum number is BST :    ",min(numbers_tree.in_order_traversal()))
-    print("Maximum number in BST:      ",max(numbers_tree.in_order_traversal()))
-    print("Sum of all elements in BST: ",sum(numbers_tree.in_order_traversal()))
+    x=numbers_tree.in_order_traversal()
+    print("Inorder Traveresed BST is:  ",x)
+    print("Miniumum number is BST :    ",min(x))
+    print("Maximum number in BST:      ",max(x))
+    print("Sum of all elements in BST: ",sum(x))
     print(" Is 4 in the list ? :       ",numbers_tree.search(4))
