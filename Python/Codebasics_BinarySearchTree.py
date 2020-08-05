@@ -66,6 +66,12 @@ if __name__=="__main__":
     x=numbers_tree.in_order_traversal()
     print("Inorder Traveresed BST is:  ",x)
     print("Miniumum number is BST :    ",min(x))
+    #or
+    print("Miniumum number is BST :    ",x[0])
+
     print("Maximum number in BST:      ",max(x))
+    #or
+    print("Maximum number in BST:      ",x[-1])
+    
     print("Sum of all elements in BST: ",sum(x))
     print(" Is 4 in the list ? :       ",numbers_tree.search(4))
