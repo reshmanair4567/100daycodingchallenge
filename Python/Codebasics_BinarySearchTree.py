@@ -35,6 +35,28 @@ class BinarySearchTreeNode:
 
         return elements
 
+    def pre_order_traversal(self):
+        elements=[]
+        elements.append(self.data)
+
+        if self.left:
+            elements+=self.left.pre_order_traversal()
+        if self.right:
+            elements+=self.right.pre_order_traversal()
+        
+        return elements
+
+    def post_order_traversal(self):
+        elements=[]
+        if self.left:
+            elements+=self.left.post_order_traversal()
+        if self.right:
+            elements+= self.right.post_order_traversal()
+
+        elements.append(self.data)
+        return elements
+
+
     def search(self,val):
         if self.data==val:
             return True
@@ -61,7 +83,7 @@ def build_tree(elements):
     return root
 
 if __name__=="__main__":
-    nums=[17,4,-1,20,9,23,18,-1,4,20,20,20,20,34]
+    nums=[7,12,14,15,20,23,27,88]
     numbers_tree=build_tree(nums)
     x=numbers_tree.in_order_traversal()
     print("Inorder Traveresed BST is:  ",x)
@@ -72,6 +94,10 @@ if __name__=="__main__":
     print("Maximum number in BST:      ",max(x))
     #or
     print("Maximum number in BST:      ",x[-1])
-    
+
     print("Sum of all elements in BST: ",sum(x))
     print(" Is 4 in the list ? :       ",numbers_tree.search(4))
+
+    print(numbers_tree.post_order_traversal())
+
+    print(numbers_tree.pre_order_traversal())
