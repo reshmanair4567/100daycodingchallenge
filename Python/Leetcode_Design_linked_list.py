@@ -47,6 +47,21 @@ class LinkedList:
                     itr.next=node
                 itr=itr.next
                 count+=1
+    
+    def delete_at_index(self,index):
+        if index>=self.size or index<0:
+            return "Invalid Index"
+        if index==0:
+            self.head=self.head.next
+        else:
+            itr=self.head
+            count=0
+            while itr:
+                if count==index-1:
+                    itr.next=itr.next.next
+                    break
+                count+=1
+                itr=itr.next
 
     def insert_at_end(self,data):
         if self.head is None:
@@ -83,6 +98,9 @@ if __name__=="__main__":
     ll.print()
     print("Length of the Linked List: "+str(ll.get_length()))
     ll.insert_at_index(34,3)
+    ll.print()
+    print("Length of the Linked List: "+str(ll.get_length()))
+    ll.delete_at_index(3)
     ll.print()
     print("Length of the Linked List: "+str(ll.get_length()))
     print("Value at the Index element is:   "+str(ll.get_index(6)))
