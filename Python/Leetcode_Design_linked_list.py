@@ -15,13 +15,10 @@ class LinkedList:
             self.head=node
     
     def get_length(self):
-        if self.head is None:
-            return 0
-        else:
-            itr=self.head
-            while itr:
-                self.size+=1
-                itr=itr.next
+        itr=self.head
+        while itr:
+            self.size+=1
+            itr=itr.next
         return self.size
 
     def get_index(self,index):
@@ -33,8 +30,22 @@ class LinkedList:
             curr=curr.next
         return curr.val
         
-    def insert_at_index(self,data):
-        pass
+    def insert_at_index(self,data,index):
+        if index>=self.size:
+            return
+        if index<0:
+            index=0
+        if index==0:
+            self.head=Node(data,None)
+        else:
+            itr=self.head
+            count=0
+            while itr:
+                if count==index-1:
+                    node=Node(data,itr.next)
+                    itr.next=node
+                itr=itr.next
+                count+=1
 
     def insert_at_end(self,data):
         if self.head is None:
@@ -70,4 +81,6 @@ if __name__=="__main__":
     ll.insert_at_beginning(88)
     ll.insert_at_end(55)
     ll.print()
-    print("Value at the Index element is:   "+str(ll.get_index(7)))
+    ll.insert_at_index(34,3)
+    ll.print()
+    print("Value at the Index element is:   "+str(ll.get_index(6)))
