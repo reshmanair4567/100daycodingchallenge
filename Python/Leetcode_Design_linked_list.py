@@ -68,7 +68,6 @@ class LinkedList:
                 listr+=str(itr.val)+"--->"
                 itr=itr.next
         print("Linked List is: "+str(listr))
-        print("Length of the Linked List: "+str(self.get_length()))
 
 if __name__=="__main__":
     ll=LinkedList()
@@ -81,6 +80,8 @@ if __name__=="__main__":
     ll.insert_at_beginning(88)
     ll.insert_at_end(55)
     ll.print()
+    print("Length of the Linked List: "+str(ll.get_length()))
     ll.insert_at_index(34,3)
     ll.print()
+    print("Length of the Linked List: "+str(ll.get_length()))
     print("Value at the Index element is:   "+str(ll.get_index(6)))
