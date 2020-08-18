@@ -15,6 +15,7 @@ class LinkedList:
             self.head=node
     
     def get_length(self):
+        self.size=0
         itr=self.head
         while itr:
             self.size+=1
