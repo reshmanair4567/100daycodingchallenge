@@ -95,6 +95,27 @@ class LinkedList:
             itr=itr.next
         return listp==listp[::-1]
 
+    def single_consecutive_remove_duplicates(self):
+        itr=self.head
+        while itr.next is not None:
+            curr1=itr.val
+            curr2=itr.next.val
+            if curr1==curr2:
+                itr.next=itr.next.next
+            itr=itr.next
+
+    def remove_all_duplicates(self):
+        prev=None
+        curr=self.head
+        dup={}
+        while curr:
+            if curr.val in dup:
+                prev.next=curr.next
+            else:
+                dup[curr.val]=1
+                prev=curr
+            curr=prev.next
+             
     def print(self):
         if self.head is None:
             print("Linked List is Empty")
@@ -108,26 +129,31 @@ class LinkedList:
 
 if __name__=="__main__":
     ll=LinkedList()
+    ll.insert_at_beginning(12)
+    ll.insert_at_beginning(12)
+    ll.insert_at_end(12)
     ll.insert_at_beginning(11)
-    ll.insert_at_beginning(11)
-    ll.insert_at_end(11)
-    ll.insert_at_beginning(11)
-    ll.insert_at_beginning(11)
-    ll.insert_at_beginning(11)
-    ll.insert_at_beginning(11)
-    ll.insert_at_end(11)
+    ll.insert_at_beginning(14)
+    ll.insert_at_beginning(15)
+    ll.insert_at_beginning(15)
+    ll.insert_at_end(17)
     ll.print()
-    print("Length of the Linked List: "+str(ll.get_length()))
-    ll.insert_at_index(34,3)
-    ll.print() 
-    print("Length of the Linked List: "+str(ll.get_length()))   
-    ll.remove_at_index(3)   
-    ll.print()    
-    print("Length of the Linked List: "+str(ll.get_length()))  
-    print(ll.middle())
-    ll.reverse_linkedlist()
-    ll.print()
-    print(ll.palindrome_linked_list())
+    # print("Length of the Linked List: "+str(ll.get_length()))
+    # ll.insert_at_index(34,3)
+    # ll.print() 
+    # print("Length of the Linked List: "+str(ll.get_length()))   
+    # ll.remove_at_index(3)   
+    # ll.print()    
+    # print("Length of the Linked List: "+str(ll.get_length()))  
+    # print(ll.middle())
+    # ll.reverse_linkedlist()
+    # ll.print()
+    # print(ll.palindrome_linked_list())
+    # ll.single_consecutive_remove_duplicates()
+    # ll.print()
+    # ll.remove_all_duplicates()
+    # ll.print()
+    
 
 
 
