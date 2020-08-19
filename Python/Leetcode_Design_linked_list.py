@@ -65,6 +65,35 @@ class LinkedList:
                 itr=itr.next
             itr.next=itr.next.next
 
+    def middle(self):
+        itr=self.head
+        listr=[]
+        for _ in range(int(self.size/2)):
+            itr=itr.next
+        else:
+            listr=[]
+            while itr:
+                listr.append(itr.val)
+                itr=itr.next
+        return listr
+
+    def reverse_linkedlist(self):
+        prev=None
+        curr=self.head
+        while curr is not None:
+            next=curr.next
+            curr.next=prev
+            prev=curr
+            curr=next
+        self.head=prev
+
+    def palindrome_linked_list(self):
+        itr=self.head
+        listp=[]
+        while itr:
+            listp.append(itr.val)
+            itr=itr.next
+        return listp==listp[::-1]
 
     def print(self):
         if self.head is None:
@@ -79,14 +108,14 @@ class LinkedList:
 
 if __name__=="__main__":
     ll=LinkedList()
-    ll.insert_at_beginning(66)
-    ll.insert_at_beginning(22)
-    ll.insert_at_beginning(33)
-    ll.insert_at_beginning(44)
     ll.insert_at_beginning(11)
-    ll.insert_at_beginning(77)
-    ll.insert_at_beginning(88)
-    ll.insert_at_end(55)
+    ll.insert_at_beginning(11)
+    ll.insert_at_end(11)
+    ll.insert_at_beginning(11)
+    ll.insert_at_beginning(11)
+    ll.insert_at_beginning(11)
+    ll.insert_at_beginning(11)
+    ll.insert_at_end(11)
     ll.print()
     print("Length of the Linked List: "+str(ll.get_length()))
     ll.insert_at_index(34,3)
@@ -95,5 +124,10 @@ if __name__=="__main__":
     ll.remove_at_index(3)   
     ll.print()    
     print("Length of the Linked List: "+str(ll.get_length()))  
+    print(ll.middle())
+    ll.reverse_linkedlist()
+    ll.print()
+    print(ll.palindrome_linked_list())
+
 
 
