@@ -202,7 +202,7 @@ class LinkedList:
         return self.size
 
     def get_index(self,index):
-        '''Get the value of index-th node in the linked list. If index is invalid , return -1'''
+        #Get the value of index-th node in the linked list. If index is invalid , return -1#
         if index<0 or index>=self.size:
             return -1
         curr=self.head
