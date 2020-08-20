@@ -286,3 +286,47 @@ if __name__=="__main__":
 '''
 
 
+'''
+Sort a Linked List:
+    def getMiddle(self):
+        if self.head is None:
+            return self.head
+        slow=self.head
+        fast=self.head
+        while fast.next!=None and fast.next.next!=None:
+            slow=slow.next
+            fast=fast.next.next   
+        return slow
+
+    def sortedMerge(self,left,right):
+        result=0
+        if left==None:
+            return right
+        if right==None:
+            return left
+        if left.val<=right.val:
+            result=left
+            result.next=self.sortedMerge(left.next,right)
+        else:
+            result=right
+            result.next=self.sortedMerge(left,right.next)
+        return result
+        
+
+    def mergesort(self,h):
+        if h==None or h.next==None:
+            return h
+        else:
+            middle=self.getMiddle()
+            nexttomiddle=middle.next
+            middle.next=None
+
+            #apply mergesort on left list
+            left=self.mergesort(h)
+            #apply mergesort on right list
+            right=self.mergesort(nexttomiddle)
+
+            #merge left and right list
+            sortedList=self.sortedMerge(left,right)
+            return sortedList
+'''

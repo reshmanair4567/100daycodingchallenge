@@ -87,8 +87,6 @@ class LinkedList:
             return -1
         if index==0:
             self.head=self.head.next
-        
-        
 
     def print(self):
         if self.head is None:
@@ -105,9 +103,9 @@ class LinkedList:
 if __name__=="__main__":
     ll=LinkedList()
     ll.insert_at_beginning(15)
-    ll.insert_at_beginning(15)
+    ll.insert_at_beginning(16)
     ll.insert_at_beginning(45)
-    ll.insert_at_beginning(60)
+    ll.insert_at_beginning(47)
     ll.insert_at_the_end(6)
     ll.print()
     print("Length of Linked list: "+str(ll.get_length()))
@@ -117,8 +115,7 @@ if __name__=="__main__":
     print("Middle of Linked List: "+str(ll.middle_linked_list()))
     ll.reverse()
     ll.print()
-    print(ll.palindrome())
-
+    print("Palindrome or Not: "+str(ll.palindrome()))
 
 
 '''
