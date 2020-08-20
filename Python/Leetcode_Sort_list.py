@@ -1,4 +1,22 @@
 #Sort a Linked List - Solution
+class ListNode:
+    def __init__(self):
+        self.val=val 
+        self.next=next
+class Solution(object):
+    def merge(self,h1,h2):
+        pass
+
+    def sortList(self,head):
+        if head is None or head.next is None:
+            return head
+        
+        pre,slow,fast=None,head,head
+        while fast and fast.next:
+            pre,slow,fast=slow,slow.next,fast.next,fast.next.next
+        pre.next=None
+        return self.merge(*map(merge(head,slow)))
+
 
 # Definition for singly-linked list.
 class ListNode:
