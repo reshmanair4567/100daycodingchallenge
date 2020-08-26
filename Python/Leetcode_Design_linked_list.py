@@ -1,3 +1,161 @@
+
+class Node(object):
+    def __init__(self,val,next):
+        self.val=val
+        self.next=next
+
+class LinkedList:
+    def __init__(self):
+        self.size=0
+        self.head=None
+    
+    def insert_at_beginning(self,data):
+        if self.head is None:
+            self.head=Node(data,None)
+        else:
+            node=Node(data,self.head)
+            self.head=node
+        
+    def insert_at_end(self,data):
+        if self.head is None:
+            self.head=Node(data,None)
+        else:
+            itr=self.head
+            while itr.next:
+                itr=itr.next
+            itr.next=Node(data,None)
+
+    def reverse(self):
+        prev=None
+        curr=self.head
+        while curr:
+            next=curr.next
+            curr.next=prev
+            prev=curr
+            curr=next
+        self.head=prev
+    
+    def get_length(self):
+        self.size=0
+        itr=self.head
+        while itr:
+            self.size+=1
+            itr=itr.next
+        return self.size
+
+    def middle_linked_list(self):
+        mid=int(self.size//2)
+        itr=self.head
+        mll=[]
+        for _ in range(mid):
+            itr=itr.next
+        else:
+            mll=[]
+            while itr:
+                mll.append(itr.val)
+                itr=itr.next
+        print(mll)
+
+    def palindrome(self):
+        listp=[]
+        itr=self.head
+        while itr:
+            listp.append(itr.val)
+            itr=itr.next
+        return (listp==listp[::-1])
+
+    def get_index(self,index):
+        if index<0 or index>self.size:
+            return -1
+        else:
+            itr=self.head
+            for _ in range(index):
+                itr=itr.next
+            return itr.val
+'''
+    def remove_node(self,data):
+        prev=None
+        curr=self.head
+        while curr:
+            if curr.val==data:
+                prev.next=curr.next.next
+
+
+
+            curr=curr.next
+'''
+
+    def print(self):
+        itr=self.head
+        listr=""
+        while itr:
+            listr+=str(itr.val)+"-->"
+            itr=itr.next
+        print(listr)
+
+    
+
+
+
+if __name__=="__main__":
+    ll=LinkedList()
+    ll.insert_at_beginning(25)
+    ll.insert_at_beginning(35)
+    ll.insert_at_beginning(45)
+    ll.insert_at_beginning(55)
+    ll.insert_at_beginning(65)
+    ll.insert_at_end(11)
+    ll.print()
+    ll.reverse()
+    ll.print()
+    print("Length of Linked List: "+str(ll.get_length()))
+    ll.middle_linked_list()
+    print("Palindrome result: "+str(ll.palindrome()))
+    print(ll.get_index(2))
+
+
+
+
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'''
 class Node(object):
     def __init__(self,val,next):
         self.val=val
@@ -116,7 +274,7 @@ if __name__=="__main__":
     ll.reverse()
     ll.print()
     print("Palindrome or Not: "+str(ll.palindrome()))
-
+'''
 
 '''
 class Node(object):
