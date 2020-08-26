@@ -72,18 +72,20 @@ class LinkedList:
             for _ in range(index):
                 itr=itr.next
             return itr.val
-'''
+
     def remove_node(self,data):
-        prev=None
         curr=self.head
+        prev=None
         while curr:
             if curr.val==data:
-                prev.next=curr.next.next
-
-
-
+                self.head=curr.next
+                return
+            prev=curr
             curr=curr.next
-'''
+            if curr.val==data:
+                prev.next=curr.next
+                return
+            
 
     def print(self):
         itr=self.head
@@ -93,9 +95,6 @@ class LinkedList:
             itr=itr.next
         print(listr)
 
-    
-
-
 
 if __name__=="__main__":
     ll=LinkedList()
@@ -103,6 +102,7 @@ if __name__=="__main__":
     ll.insert_at_beginning(35)
     ll.insert_at_beginning(45)
     ll.insert_at_beginning(55)
+    ll.insert_at_beginning(95)
     ll.insert_at_beginning(65)
     ll.insert_at_end(11)
     ll.print()
@@ -111,7 +111,11 @@ if __name__=="__main__":
     print("Length of Linked List: "+str(ll.get_length()))
     ll.middle_linked_list()
     print("Palindrome result: "+str(ll.palindrome()))
-    print(ll.get_index(2))
+    print("Value at given index is: "+str(ll.get_index(2)))
+    ll.remove_node(35)
+    ll.print()
+    print("Length of Linked List: "+str(ll.get_length()))
+
 
 
 
