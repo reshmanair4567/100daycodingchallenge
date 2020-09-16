@@ -8,8 +8,8 @@ def NewYearChaos(queue):
         if (v - 1) - i > 2:
             return "Too chaotic"
     # bubble sorting to find the answer
-    for i in xrange(0, lastIndex):
-        for j in xrange(0, lastIndex):
+    for i in range(0, lastIndex):
+        for j in range(0, lastIndex):
             comps += 1
             if queue[j] > queue[j+1]:
                 temp = queue[j]
